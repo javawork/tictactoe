@@ -1,0 +1,41 @@
+package tictactoe;
+
+enum MessageType {
+    C_LOGIN = 0;
+    S_LOGIN = 1;
+	S_START = 2;
+	C_SETPIECE = 3;
+	S_SETPIECE = 4;
+	S_END = 5;
+}
+
+message CLogin {
+}
+
+message SLogin {
+	required int32 id = 1;
+}
+
+message SStart {
+
+	message User {
+		required int32 id = 1;
+		required int32 piece_type = 2;
+	}
+
+	repeated User list = 1;
+}
+
+message CSetPiece {
+	required int32 pos = 1;
+	required int32 piecetype = 2;
+}
+
+message SSetPiece {
+	required int32 pos = 1;
+	required int32 piecetype = 2;
+}
+
+message SEnd {
+	required int32 winner_piece = 1;
+}
